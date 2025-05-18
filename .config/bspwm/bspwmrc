@@ -1,0 +1,29 @@
+#! /bin/sh
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+
+picom --config ~/.config/picom/picom.conf &
+
+feh --bg-fill ~/wallpapers/pixel_art_forest_sky.png
+
+polybar &
+flameshot &
+discord &
+
+setxkbmap "us,ru" ",winkeys" "grp:caps_toggle" &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d 1 2 3 4 5 6
+
+bspc config active_border_color '#5C9C5A'
+bspc config normal_border_color '#3C663B'
+bspc config focused_border_color '#5C9C5A'
+
+bspc config border_width         2
+bspc config window_gap          13
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
